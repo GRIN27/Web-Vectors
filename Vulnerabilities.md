@@ -1,5 +1,5 @@
 **THIS IS THE DOCUMENTATION FOR THE VULNERABILITIES**<br>
-**Author - Niskarsh Srivastava**<br>
+**Author - Manish Jadhav**<br>
 **Date - 19 Jan, 2025**<br>
 
 # 1. Reflected Cross-Site Scripting (XSS)
