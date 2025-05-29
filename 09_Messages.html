@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - WEB VECTORS</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: url("https://imgs.search.brave.com/uJ4lFbUHsN_cL_GYxmBn-KJHmie39pfcfJZZVXYP_tw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJhY2Nlc3Mu/Y29tL2Z1bGwvMzE2/ODY3LmpwZw") no-repeat center center/cover;
+            color: #0ff;
+            height: 100vh;
+            display: flex;
+        }
+
+        .contacts {
+            width: 25%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            overflow-y: auto;
+            border-right: 2px solid #0ff;
+        }
+
+        .contact {
+            padding: 10px;
+            border-bottom: 1px solid #0ff;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact:hover {
+            background: rgba(0, 255, 255, 0.2);
+        }
+
+        .chat-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .messages {
+            flex: 1;
+            overflow-y: auto;
+            padding-bottom: 10px;
+        }
+
+        .message {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        .sent {
+            background: #0ff;
+            color: #111;
+            align-self: flex-end;
+        }
+
+        .received {
+            background: #222;
+            color: #0ff;
+            align-self: flex-start;
+        }
+
+        .input-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .file-upload {
+            background: #0ff;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .message-input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            background: rgba(0, 0, 0, 0.8);
+            color: #0ff;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .send-btn {
+            background: #0ff;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .send-btn:hover {
+            background: #f00;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="contacts" id="contact-list">
+        <h2>Contacts</h2>
+        <div class="contact" onclick="loadChat('User 1')">User 1</div>
+        <div class="contact" onclick="loadChat('User 2')">User 2</div>
+        <div class="contact" onclick="loadChat('User 3')">User 3</div>
+    </div>
+
+    <div class="chat-container">
+        <div class="messages" id="chat-box"></div>
+
+        <div class="input-area">
+            <label class="file-upload" for="file-input">📎</label>
+            <input type="file" id="file-input" style="display: none;" onchange="sendFile()">
+            <input type="text" class="message-input" id="message-input" placeholder="Type a message...">
+            <button class="send-btn" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        let chats = {
+            "User 1": [],
+            "User 2": [],
+            "User 3": []
+        };
+
+        let currentChat = "User 1";
+        
+        function loadChat(user) {
+            currentChat = user;
+            let chatBox = document.getElementById("chat-box");
+            chatBox.innerHTML = ""; 
+            chats[user].forEach(msg => {
+                let div = document.createElement("div");
+                div.className = "message " + msg.type;
+                div.innerHTML = msg.text; 
+                chatBox.appendChild(div);
+                executeScripts(div);
+            });
+        }
+
+        function sendMessage() {
+            let messageInput = document.getElementById("message-input");
+            let messageText = messageInput.value.trim();
+            if (messageText !== "") {
+                let chatBox = document.getElementById("chat-box");
+                let messageDiv = document.createElement("div");
+                messageDiv.className = "message sent";
+                messageDiv.innerHTML = messageText; 
+                chatBox.appendChild(messageDiv);
+                
+                chats[currentChat].push({ text: messageText, type: "sent" });
+                messageInput.value = "";
+                executeScripts(messageDiv);
+            }
+        }
+
+        function sendFile() {
+            let fileInput = document.getElementById("file-input");
+            let file = fileInput.files[0];
+            if (file) {
+                let chatBox = document.getElementById("chat-box");
+                let messageDiv = document.createElement("div");
+                messageDiv.className = "message sent";
+                
+                let fileURL = URL.createObjectURL(file);
+                messageDiv.innerHTML = `<a href="${fileURL}" target="_blank">📂 ${file.name}</a>`; // Vulnerable file inclusion
+                
+                chatBox.appendChild(messageDiv);
+                chats[currentChat].push({ text: messageDiv.innerHTML, type: "sent" });
+            }
+        }
+
+        function executeScripts(element) {
+            let scripts = element.getElementsByTagName("script");
+            for (let i = 0; i < scripts.length; i++) {
+                let newScript = document.createElement("script");
+                newScript.innerHTML = scripts[i].innerHTML;
+                document.body.appendChild(newScript);
+            }
+        }
+    </script>
+</body>
+</html>

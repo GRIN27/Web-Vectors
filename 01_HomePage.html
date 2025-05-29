@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB VECTORS - Learn Web Security</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0a0a0a; 
+            background-image: url('');                  
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #0ff;
+            text-align: center;
+        }   
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0a0a0a;
+            color: #0ff;
+            text-align: center;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #111;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0ff;
+        }
+
+        .logo span {
+            color: #f00;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #0ff;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #f00;
+        }
+
+        .hero {
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+        }
+
+        .hero .glitch {
+            animation: glitch 1.5s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px #f00, -2px -2px #00f; }
+            50% { text-shadow: -2px -2px #f00, 2px 2px #00f; }
+            100% { text-shadow: 2px 2px #f00, -2px -2px #00f; }
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #0ff;
+            color: #111;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #f00;
+            color: #fff;
+        }
+
+        .about {
+            padding: 50px 20px;
+            background: #111;
+            margin-top: 20px;
+        }
+
+        footer {
+            padding: 10px;
+            background: #111;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">WEB<span>VECTORS</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="login">Login</a></li>
+                <li><a href="signup">Signup</a></li>
+                <li><a href="Attack-vectors">Vectors</a></li>
+                <li><a href="contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1 class="glitch">WEB <span>VECTORS</span></h1>
+        <p>Test, Learn, and Exploit Web Vulnerabilities in a Safe Environment.</p>
+        <a href="Attack-vectors" class="btn">Explore Vulnerabilities</a>
+    </section>
+
+    <section class="about">
+        <h2>What is WEB VECTORS?</h2>
+        <p>
+            WEB VECTORS is an intentionally vulnerable web application designed to help students learn about cybersecurity threats and how to defend against them. 
+            Explore different attack vectors like SQL Injection, XSS, CSRF, and more.
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 WEB VECTORS | Learn Ethical Hacking Responsibly</p>
+    </footer>
+
+    <script>
+        // Example JavaScript (currently no functionality, but you can add interactivity here)
+        console.log("WEB VECTORS - Cybersecurity Learning Platform Loaded");
+    </script>
+
+</body>
+</html>

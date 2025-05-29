@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vulnerabilities - WEB VECTORS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: url("https://imgs.search.brave.com/uJ4lFbUHsN_cL_GYxmBn-KJHmie39pfcfJZZVXYP_tw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJhY2Nlc3Mu/Y29tL2Z1bGwvMzE2/ODY3LmpwZw") no-repeat center center/cover;
+            color: #0ff;
+            text-align: center;
+            padding: 50px;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #0ff;
+            max-width: 800px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #0ff black;
+        }
+
+        .container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .container::-webkit-scrollbar-thumb {
+            background-color: #0ff;
+            border-radius: 10px;
+        }
+
+        .container::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        h1 {
+            font-size: 32px;
+            text-shadow: 2px 2px 5px rgba(0, 255, 255, 0.8);
+        }
+
+        .vuln-section {
+            margin-top: 30px;
+            padding: 20px;
+            border: 2px solid #0ff;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.6);
+            text-align: left;
+        }
+
+        h2 {
+            color: #f00;
+            text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.8);
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        a {
+            color: #f00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #ff4444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Common Attack Vectors</h1>
+        
+        <div class="vuln-section">
+            <h2>Bruteforcing Credentials</h2>
+            <p>Brute force attacks involve systematically trying multiple password or username combinations to gain unauthorized access.</p>
+            <a href="https://www.vaadata.com/blog/brute-force-attacks-principles-and-security-best-practices/" target="_blank">Learn More</a>
+        </div>
+        
+        <div class="vuln-section">
+            <h2>Cross Site Scripting (XSS)</h2>
+            <p>XSS occurs when an attacker injects malicious scripts into a web application, which can execute in a victim’s browser and steal sensitive data.</p>
+            <a href="https://owasp.org/www-community/attacks/xss/" target="_blank">Learn More</a>
+        </div>
+        
+        <div class="vuln-section">
+            <h2>File Inclusion Attack</h2>
+            <p>File Inclusion vulnerabilities occur when an attacker can include arbitrary files on a server, potentially leading to code execution or information disclosure.</p>
+            <a href="https://brightsec.com/blog/file-inclusion-vulnerabilities/" target="_blank">Learn More</a>
+        </div>
+        
+        <div class="vuln-section">
+            <h2>Hardcoded Credentials</h2>
+            <p>Hardcoded credentials or secrets within the source code can be exploited by attackers to gain unauthorized access to systems or databases.</p>
+            <a href="https://cwe.mitre.org/data/definitions/798.html" target="_blank">Learn More</a>
+        </div>
+        
+        <div class="vuln-section">
+            <h2>IDOR</h2>
+            <p>Insecure Direct Object References (IDOR) occur when an attacker can access or modify data by directly manipulating object identifiers in a request.</p>
+            <a href="https://portswigger.net/web-security/access-control/idor" target="_blank">Learn More</a>
+        </div>
+        
+        <div class="vuln-section">
+            <h2>Open Redirect</h2>
+            <p>Open redirect vulnerabilities allow attackers to redirect users to malicious websites by manipulating URLs, leading to phishing or other attacks.</p>
+            <a href="https://www.stackhawk.com/blog/what-is-open-redirect/" target="_blank">Learn More</a>
+        </div>
+        
+    </div>
+</body>
+</html>

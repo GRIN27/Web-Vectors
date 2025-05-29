@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - WEB VECTORS</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: #000;
+            color: #0ff;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Background Glitch Effect */
+        .glitch-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://wallpaperaccess.com/full/2878593.jpg') no-repeat center center/cover;
+            opacity: 0.2;
+            animation: glitch 3s infinite alternate;
+        }
+
+        @keyframes glitch {
+            0% { opacity: 0.2; transform: translateX(0); }
+            50% { opacity: 0.4; transform: translateX(-5px); }
+            100% { opacity: 0.2; transform: translateX(5px); }
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #0ff;
+            width: 90%;
+            max-width: 700px;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 32px;
+            text-shadow: 2px 2px 5px rgba(0, 255, 255, 0.8);
+            text-align: center;
+        }
+
+        .glitch {
+            animation: glitch-text 1.5s infinite;
+        }
+
+        @keyframes glitch-text {
+            0% { text-shadow: 2px 2px #f00, -2px -2px #00f; }
+            50% { text-shadow: -2px -2px #f00, 2px 2px #00f; }
+            100% { text-shadow: 2px 2px #f00, -2px -2px #00f; }
+        }
+
+        .faculty, .team {
+            width: 45%;
+        }
+
+        .faculty h2, .team h2 {
+            font-size: 24px;
+            text-decoration: underline;
+        }
+
+        .faculty p, .team p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .social-links {
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            color: #0ff;
+            text-decoration: none;
+            margin-right: 15px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #f00;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="glitch-bg"></div> <!-- Background Glitch Layer -->
+
+    <h1 class="glitch">Contact Us</h1>
+
+    <div class="container">
+        <div class="faculty">
+            <h2>Faculty Advisor</h2>
+            <p><strong>Shivangi Patel</strong></p>
+        </div>
+
+        <div class="team">
+            <h2>Presented By</h2>
+            <p><strong>Niskarsh</strong> (2203051260005)</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/niskarsh-sri" target="_blank">LinkedIn</a> | 
+                <a href="https://github.com/Nikki-the-Parcel" target="_blank">Github</a>
+            </div>
+            ---------------------------------
+            <p><strong>Chirag Patel</strong> (2203051260002)</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/chirag-patel-562164320/" target="_blank">LinkedIn</a> | 
+                <a href="https://www.youtube.com/watch?v=71yzX1SA56A" target="_blank">Github</a>
+            </div>
+            ---------------------------------
+            <p><strong>Manish Jadhav</strong> (2203051269003)</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/manish-jadhav-990b71320/" target="_blank">LinkedIn</a> | 
+                <a href="https://github.com/Manish15827" target="_blank">Github</a>
+            </div>
+            ---------------------------------
+            <p><strong>Hemant Sirvee</strong> (2203051260049)</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/hemant-sirvee-798a81245/" target="_blank">LinkedIn</a> | 
+                <a href="https://github.com/Hemant-Sirvee" target="_blank">Github</a>
+            </div>
+            
+            ---------------------------------
+        </div>
+    </div>
+
+    <script>
+        console.log("Contact Page Loaded - WEB VECTORS");
+    </script>
+
+</body>
+</html>

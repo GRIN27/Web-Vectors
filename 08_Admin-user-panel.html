@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - User Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #000;
+            color: #0ff;
+            text-align: center;
+            padding: 20px;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(0, 255, 255, 0.2);
+            box-shadow: 0 0 10px #0ff;
+        }
+        .logout-btn {
+            padding: 8px 15px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .logout-btn:hover {
+            background-color: darkred;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 10px #0ff;
+        }
+        th, td {
+            border: 1px solid #0ff;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background: #0ff;
+            color: #000;
+        }
+        button {
+            padding: 5px 10px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+        }
+        .edit-btn {
+            background-color: yellow;
+            color: black;
+        }
+        .save-btn {
+            background-color: green;
+            color: white;
+        }
+        .delete-btn {
+            background-color: red;
+            color: white;
+        }
+        input {
+            width: 90%;
+            padding: 5px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            color: #0ff;
+            border: 1px solid #0ff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <h1>Admin - User Management</h1>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr id="row-{{ user.id }}">
+                <td>{{ user.id }}</td>
+                <td class="username">{{ user.username }}</td>
+                <td class="email">{{ user.email }}</td>
+                <td>
+                    <button class="edit-btn" onclick="editUser({{ user.id }})">Edit</button>
+                    <button class="delete-btn" onclick="deleteUser({{ user.id }})">Delete</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <script>
+        function editUser(userId) {
+            let row = document.getElementById(`row-${userId}`);
+            let nameCell = row.querySelector(".username");
+            let emailCell = row.querySelector(".email");
+            let editBtn = row.querySelector(".edit-btn");
+
+            if (editBtn.innerText === "Save") {
+                let newName = nameCell.querySelector("input").value;
+                let newEmail = emailCell.querySelector("input").value;
+
+                fetch(`/update_user/${userId}`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ username: newName, email: newEmail })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        nameCell.innerHTML = newName;
+                        emailCell.innerHTML = newEmail;
+                        editBtn.innerText = "Edit";
+                        editBtn.classList.remove("save-btn");
+                        editBtn.classList.add("edit-btn");
+                        alert("Change implemented Successfully!!!");
+                    } else {
+                        alert("Failed to update user!");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error updating user:", error);
+                    alert("Error updating user!");
+                });
+            } else {
+                let currentName = nameCell.innerText;
+                let currentEmail = emailCell.innerText;
+                nameCell.innerHTML = `<input type="text" value="${currentName}">`;
+                emailCell.innerHTML = `<input type="email" value="${currentEmail}">`;
+                editBtn.innerText = "Save";
+                editBtn.classList.remove("edit-btn");
+                editBtn.classList.add("save-btn");
+            }
+        }
+
+        function deleteUser(userId) {
+            if (confirm("Are you sure you want to delete this user?")) {
+                fetch(`/delete_user/${userId}`, { method: "POST" })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.getElementById(`row-${userId}`).remove();
+                    } else {
+                        alert("Failed to delete user!");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error deleting user:", error);
+                    alert("Error deleting user!");
+                });
+            }
+        }
+
+        function logout() {
+            fetch("/logout", { method: "GET" })
+            .then(() => window.location.href = "/login");
+        }
+    </script>
+</body>
+</html>

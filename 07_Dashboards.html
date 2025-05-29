@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - WEB VECTORS</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background: url("https://imgs.search.brave.com/uJ4lFbUHsN_cL_GYxmBn-KJHmie39pfcfJZZVXYP_tw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJhY2Nlc3Mu/Y29tL2Z1bGwvMzE2/ODY3LmpwZw") no-repeat center center/cover;
+            color: #0ff;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px #0ff;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            text-shadow: 2px 2px 5px rgba(0, 255, 255, 0.8);
+        }
+
+        .glitch {
+            animation: glitch 1.5s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 3px 3px #f00, -3px -3px #00f; }
+            50% { text-shadow: -3px -3px #f00, 3px 3px #00f; }
+            100% { text-shadow: 3px 3px #f00, -3px -3px #00f; }
+        }
+
+        .info {
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        .status-box {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px #0ff;
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background: #0ff;
+            color: #111;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #f00;
+            color: #fff;
+            box-shadow: 0 0 15px #f00;
+        }
+
+        .links {
+            margin-top: 15px;
+        }
+
+        .links a {
+            color: #0ff;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .links a:hover {
+            color: #f00;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="glitch">Welcome, User!</h1>
+
+        <p class="info">Your last login: <span id="last-login">Fetching...</span></p>
+        
+        <div class="status-box">
+            <p><strong>Account Status:</strong> Active</p>
+            <p><strong>Security Level:</strong> Low (vulnerable!)</p>
+            <p><strong>Admin Messages:</strong> 2 new messages</p>
+        </div>
+
+        <button class="btn" onclick="window.location.href='/09_Messages.html'">View Messages</button>
+        <button class="btn" onclick="logout()">Logout</button>
+
+        <div class="links">
+            <a href="/">Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        console.log("Dashboard Loaded - WEB VECTORS");
+
+        // Simulate fetching last login info
+        document.getElementById("last-login").innerText = "2025-02-22 14:32:10";
+
+        function logout() {
+            window.location.href = "/logout"; 
+        }
+    </script>
+
+</body>
+</html>
