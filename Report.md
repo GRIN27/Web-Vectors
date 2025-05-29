@@ -1,6 +1,6 @@
 # **THIS IS THE OFFICIAL DOCUMENTATION OF THIS PROJECT**<br>
 **TITLE - *WEB VECTORS***<br>
-**AUTHOR - *NISKARSH SRIVASTAVA***<br>
+**AUTHOR - *Manish Jadhav***<br>
 **THIS PROJECT IS MAINTAINED BY *[NISKARSH](www.linkedin.com/in/niskarsh-srivastava-a28a18254)*, *[CHIRAG PATEL](linkedin.com/in/chirag-patel-562164320)*, *[MANISH JADHAV](https://www.linkedin.com/in/manish-jadhav-990b71320?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)* and *[HEMANT SIRVEE](https://www.linkedin.com/in/hemant-sirvee-798a81245?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)***
 
 # TIMELINE OF THE PROJECT
