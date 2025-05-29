@@ -44,7 +44,7 @@ Before you begin, ensure you have met the following requirements:
 
 1. **Clone the Repository:**
 
-       git clone https://github.com/Nikki-the-Parcel/Web-Vectors.git
+       git clone https://github.com/GRIN27/Web-Vectors
     
 2. **Move into the directory:**
 
@@ -98,7 +98,7 @@ Contributions are welcome! Please follow these steps:
 
 ## Acknowledgments
 
-- Thanks to all the members that worked on this project, their handles can be found on the [Contact Us](https://github.com/Nikki-the-Parcel/Web-Vectors/blob/ReadMe/06_Contact.html) Page.
+- Thanks to all the members that worked on this project, their handles can be found on the [Contact Us](https://github.com/GRIN27/Web-Vectors/edit/main/README.md) Page.
 - Special thanks to the open-source community for their contributions and resources.
 - Inspired by projects like DVWA and bWAPP.
 - Utility of AI like ChatGPT, PentestGPT to help with the documentation and small codes.
